@@ -1,6 +1,8 @@
 package com.codeclan.example.Department.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,12 +21,12 @@ public class Employee {
     private String lastName;
     @Column(name = "employee_number")
     private int employeeNumber;
-    @JsonIgnore
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
-    @JsonIgnore
+    @JsonIgnoreProperties({"employees"})
     @ManyToMany
     @JoinTable(
             name = "employees_projects",
