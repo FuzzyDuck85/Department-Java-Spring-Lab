@@ -47,6 +47,7 @@ class DepartmentApplicationTests {
 		project.addEmployee(employee);
 		department.addEmployee(employee);
 		employee.getProjects();
+		employee.addProject(project);
 	}
 
 }

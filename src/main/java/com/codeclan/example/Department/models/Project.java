@@ -1,6 +1,7 @@
 package com.codeclan.example.Department.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -37,6 +38,10 @@ public class Project {
         this.name = name;
         this.duration = duration;
         this.employees = new ArrayList<>();
+    }
+
+    public Project(){
+
     }
 
     public Long getId() {
